@@ -1,0 +1,18 @@
+# Ignorar el entorno virtual
+venv/
+
+# Ignorar la base de datos de Django (por defecto db.sqlite3)
+db.sqlite3
+
+# Ignorar otros archivos temporales que pueden ser creados por Python y Django
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignorar archivos de migraciones que no quieras seguir
+**/migrations/
+
+# Ignorar archivos temporales de sistema
+.DS_Store
+Thumbs.db

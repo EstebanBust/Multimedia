@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <style>
+        .video-item {
+            margin-bottom: 20px;
+        }
+        .video-item img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video List</h1>
+    <div>
+        {% for video in videos %}
+            <div class="video-item">
+                <h2>{{ video.title }}</h2>
+                <a href="{{ video.play_url }}">
+                    <img src="{{ video.thumbnail_url }}" alt="{{ video.title }}">
+                </a>
+                <p><a href="{{ video.play_url }}">Play Video</a></p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
