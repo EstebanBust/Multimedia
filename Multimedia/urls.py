@@ -18,13 +18,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from reproducir import views
+from reproducir import views as reproducir
+from descargas import views as descargas
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('videos/', views.lista_videos, name='lista_videos'),
-    path('download/', views.download_video, name='download_video'),
-     path('play_video/<path:video_path>/', views.play_video, name='play_video'),
+    path('videos/', reproducir.lista_videos, name='lista_videos'),
+    path('download/', reproducir.download_video, name='download_video'),
+    path('play_video/<path:video_path>/',reproducir.play_video, name='play_video'),
+    path('search/', descargas.search_videos, name='search_videos'),
 ]
 
 if settings.DEBUG:

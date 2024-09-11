@@ -1,0 +1,65 @@
+<!-- templates/base.html -->
+{% load bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django Project{% endblock %}</title>
+    
+    <!-- Incluir Bootstrap CSS -->
+    {% bootstrap_css %}
+
+    <!-- Puedes incluir CSS adicional aquí -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">  <!-- Si tienes algún archivo CSS personalizado -->
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Barra de navegación (opcional) -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Django Bootstrap</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        {% block content %}
+        <h1>Welcome to my Django Project!</h1>
+        <p>This is the default content. Override this block in other templates.</p>
+        {% endblock %}
+    </div>
+
+    <!-- Pie de página (opcional) -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3">
+            © 2024 Copyright: 
+            <a class="text-dark" href="https://yourwebsite.com/">YourWebsite</a>
+        </div>
+    </footer>
+
+    <!-- Incluir Bootstrap JS -->
+    {% bootstrap_javascript %}
+
+    <!-- Puedes incluir scripts adicionales aquí -->
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
